@@ -1,0 +1,15 @@
+<template name="userSongs">
+
+{{> addSongForm }}
+<hr>
+
+<div class="row">
+    <ul>
+      <h2>hola</h2>
+      {{#each songs}}
+        <li><iframe width="560" height="315" src="{{urlMod}}" frameborder="0" allowfullscreen></iframe></li>
+      {{/each}}
+    </ul>
+</div>
+  
+</template>
