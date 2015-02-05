@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+
+.song {
+  border: 2px solid #d4d4d4;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  border-radius: 5px;
+}

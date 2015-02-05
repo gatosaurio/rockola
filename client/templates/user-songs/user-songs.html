@@ -3,14 +3,18 @@
 {{> addSongForm }}
 <hr>
 
-<div class="row">
-      <h2>hola</h2>
-      {{#each songs}}
-          <div id="song">
-            <iframe width="560" height="315" src="{{urlMod}}" frameborder="0" allowfullscreen>></iframe>
-            <h5>{{comment}}</h5>
-          </div>
-      {{/each}}
-</div>
+
+  <h2>Canciones enviadas</h2>
+  {{#each songs}}
+  <div class="row song">
+    <div class="col-md-4">
+      <iframe width="300" height="200" src="{{urlMod}}" frameborder="0" allowfullscreen>></iframe>
+    </div>
+    <div class="col-md-8">  
+      <h5>{{comment}}</h5>
+    </div>
+  </div>
+  {{/each}}
+
   
 </template>
