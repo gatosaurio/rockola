@@ -1,4 +1,4 @@
-Meteor.subscribe('songs');
+/*Meteor.subscribe('songs');*/
 
 Template.userSongs.helpers({
   'songs': function(){
@@ -12,10 +12,7 @@ Template.userSongs.events({
    /* var currentUserId = Meteor.userId();*/
     var url  = event.target.url.value;
     var urlMod = url.replace("watch?v=", "v/");
-   
-    
-   console.log(urlMod);
-    
+       
    Songs.insert({
       urlMod: urlMod,
       comment: "",
