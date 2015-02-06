@@ -1,5 +1,14 @@
-Session.setDefault("counter", 23);
-Session.makePersistent("counter");
+Session.setDefaultPersistent("counter", 3);
+
+Meteor.startup(function () {
+  var count = Session.get("counter");
+  if(count === 0){
+    setTimeout(function() {
+      Session.update("counter", 3);
+    }, 5000);
+    
+  }
+});
 
 Template.userSongs.helpers({
   'songs': function(){
@@ -7,8 +16,8 @@ Template.userSongs.helpers({
   },
   
   'counter': function(){
-    return Session.get('counter');
-    
+    var count = Session.get('counter');
+    return count;
   },
   
   'disableForm': function(){
@@ -48,11 +57,6 @@ Template.userSongs.events({
   'click .send': function(){
     var count =  Session.get("counter");
     Session.set("counter", count - 1);
-    if(count === 0){
-      setInterval(function() {
-        Session.update("counter", 3);
-      }, 5000);
-    }
     
   }
 });
