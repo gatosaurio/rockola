@@ -1,7 +1,10 @@
 /*Meteor.subscribe('songs');*/
 
-Session.setDefault("counter", 3);
-Session.makePersistent("counter");
+Session.setPersistent("counter", 3);
+setTimeout(function() {
+  Session.clearPersistent()
+  Session.setPersistent("counter", 3);
+}, 1800000);
 
 Template.userSongs.helpers({
   'songs': function(){
@@ -32,6 +35,7 @@ Template.userSongs.events({
      Songs.insert({
       urlMod: urlMod,
       comment: "",
+      status: "Pendiente",
       approved: false,
       createdAt: new Date(),
     });

@@ -2,7 +2,7 @@
   
   <div>
     {{#each adminSongs}}
-      <div class="row song">
+      <div class="row song {{approved}}">
         
         <div class="col-md-4">
           <iframe width="300" height="180" src="{{urlMod}}" frameborder="0" allowfullscreen></iframe>
@@ -11,6 +11,8 @@
           <form>
             <div class="form-group">
               <input type="text" class="form-control" name="comment" placeholder="comentario" />
+              Aprobar: <input type="checkbox" checked="{{approved}}" class="toggle-checked" />
+              <input type="text" class="form-control" name="status" placeholder="status" />
             </div>
             <input type="submit" class="btn btn-default" value="enviar"/>
           </form>

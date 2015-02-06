@@ -10,3 +10,7 @@
 .disabled {
   display: none;
 }
+
+.approved {
+  border-color: green;
+}
