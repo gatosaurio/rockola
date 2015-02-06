@@ -1,9 +1,23 @@
 /*Meteor.subscribe('songs');*/
 
+Session.setDefault("counter", 3);
+Session.makePersistent("counter");
+
 Template.userSongs.helpers({
   'songs': function(){
      return Songs.find({}, {sort: {createdAt: -1}});  
-  }
+  },
+  
+  'counter': function(){
+    return Session.get('counter');
+  },
+  
+  'disableForm': function(){
+      var counter = Session.get('counter');
+      if(counter === 0){
+        return "disabled"
+      }
+    }
   
 });
 
@@ -28,6 +42,8 @@ Template.userSongs.events({
     event.target.url.value = ""
     
     return false;
-    
+  },
+  'click .send': function(){
+    Session.set("counter", Session.get("counter") - 1);
   }
 });

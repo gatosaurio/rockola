@@ -8,3 +8,4 @@ meteor-platform
 insecure
 mizzao:bootstrap-3
 iron:router
+u2622:persistent-session
