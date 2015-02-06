@@ -1,5 +1,3 @@
-Meteor.subscribe('songs');
-
 Template.adminSongs.helpers ({
   'adminSongs': function(){
     return Songs.find({}, {sort: {createdAt: -1}})

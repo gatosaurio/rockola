@@ -1,0 +1,13 @@
+<template name="playList">
+  
+  <h3>Now Playing:</h3>
+  {{#each playList}}
+  
+  <div class="row song">
+      <div class="col-md-8">
+        <iframe width="300" height="180" src="{{urlMod}}" frameborder="0" allowfullscreen>></iframe>
+      </div>
+  </div>
+  
+  {{/each}}
+</template>

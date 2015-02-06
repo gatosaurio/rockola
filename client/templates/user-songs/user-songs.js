@@ -1,10 +1,5 @@
-/*Meteor.subscribe('songs');*/
-
-Session.setPersistent("counter", 3);
-setTimeout(function() {
-  Session.clearPersistent()
-  Session.setPersistent("counter", 3);
-}, 1800000);
+Session.setDefault("counter", 23);
+Session.makePersistent("counter");
 
 Template.userSongs.helpers({
   'songs': function(){
@@ -13,6 +8,7 @@ Template.userSongs.helpers({
   
   'counter': function(){
     return Session.get('counter');
+    
   },
   
   'disableForm': function(){
@@ -30,6 +26,7 @@ Template.userSongs.events({
    /* var currentUserId = Meteor.userId();*/
     var url  = event.target.url.value;
     var urlMod = url.replace("watch?v=", "v/");
+    var creator = Meteor.user();
     
     if (url.indexOf("youtube.com") !=-1) {
      Songs.insert({
@@ -38,6 +35,7 @@ Template.userSongs.events({
       status: "Pendiente",
       approved: false,
       createdAt: new Date(),
+      createdBy: creator
     });
     } else {
       alert("No Way Jose! SOLO videos de YouTube!")
@@ -48,6 +46,13 @@ Template.userSongs.events({
     return false;
   },
   'click .send': function(){
-    Session.set("counter", Session.get("counter") - 1);
+    var count =  Session.get("counter");
+    Session.set("counter", count - 1);
+    if(count === 0){
+      setInterval(function() {
+        Session.update("counter", 3);
+      }, 5000);
+    }
+    
   }
 });
