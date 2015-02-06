@@ -1,20 +1,25 @@
 <template name="userSongs">
 
-{{> addSongForm }}
-<hr>
-
-
-  <h2>Canciones enviadas</h2>
-  {{#each songs}}
-  <div class="row song">
-    <div class="col-md-4">
-      <iframe width="300" height="200" src="{{urlMod}}" frameborder="0" allowfullscreen>></iframe>
-    </div>
-    <div class="col-md-8">  
-      <h5>{{comment}}</h5>
-    </div>
+  <div class="song-form">
+    {{> addSongForm }}
   </div>
-  {{/each}}
+  
+  <hr>
+  
+  <div class="song-list">
+    <h2>Canciones enviadas</h2>
+    {{#each songs}}
+    <div class="row song">
+        
+      <div class="col-md-4">
+        <iframe width="260" height="180" src="{{urlMod}}" frameborder="0" allowfullscreen>></iframe>
+      </div>
+      <div class="col-md-8">  
+        <h4>{{comment}}</h4>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 
   
 </template>

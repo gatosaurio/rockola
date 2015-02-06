@@ -2,9 +2,10 @@
 
 Template.userSongs.helpers({
   'songs': function(){
-     return Songs.find({})
-  },
-})
+     return Songs.find({}, {sort: {createdAt: -1}});  
+  }
+  
+});
 
 Template.userSongs.events({
   "submit form": function(event){
@@ -12,13 +13,17 @@ Template.userSongs.events({
    /* var currentUserId = Meteor.userId();*/
     var url  = event.target.url.value;
     var urlMod = url.replace("watch?v=", "v/");
-       
-   Songs.insert({
+    
+    if (url.indexOf("youtube.com") !=-1) {
+     Songs.insert({
       urlMod: urlMod,
       comment: "",
       approved: false,
-      
+      createdAt: new Date(),
     });
+    } else {
+      alert("No Way Jose! SOLO videos de YouTube!")
+    }
     
     event.target.url.value = ""
     
