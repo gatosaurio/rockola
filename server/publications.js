@@ -3,8 +3,8 @@ Meteor.publish("allSongs", function(){
 });
 
 /*Meteor.publish("userSongs", function() {
-  user = this.userId(); 
-  return Songs.find({createdBy: user });
+  var creator = Meteor.users.find({_id: this.userId});
+  return Songs.find({createdBy: creator});
 });*/
   
 

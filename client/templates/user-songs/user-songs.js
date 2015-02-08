@@ -6,14 +6,14 @@ Meteor.startup(function () {
     setTimeout(function() {
       Session.update("counter", 3);
     }, 5000);
-    
+  
   }
 });
 
 Template.userSongs.helpers({
   'songs': function(){
     var creator = Meteor.user();
-     return Songs.find({createdBy: creator}, {sort: {createdAt: -1}});  
+    return Songs.find({createdBy: creator}, {sort: {createdAt: -1}});  
   },
   
   'counter': function(){
@@ -36,6 +36,8 @@ Template.userSongs.events({
    /* var currentUserId = Meteor.userId();*/
     var url  = event.target.url.value;
     var urlMod = url.replace("watch?v=", "v/");
+    var yt_id = urlMod.match(/.{11}$/g);
+    Meteor.call('getVideoId', yt_id);
     var creator = Meteor.user();
     
     if (url.indexOf("youtube.com") !=-1) {
