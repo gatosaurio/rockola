@@ -12,7 +12,8 @@ Meteor.startup(function () {
 
 Template.userSongs.helpers({
   'songs': function(){
-     return Songs.find({}, {sort: {createdAt: -1}});  
+    var creator = Meteor.user();
+     return Songs.find({createdBy: creator}, {sort: {createdAt: -1}});  
   },
   
   'counter': function(){
@@ -52,7 +53,6 @@ Template.userSongs.events({
     
     event.target.url.value = ""
     
-    return false;
   },
   'click .send': function(){
     var count =  Session.get("counter");
