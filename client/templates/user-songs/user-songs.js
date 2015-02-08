@@ -35,23 +35,25 @@ Template.userSongs.events({
     event.preventDefault();
    /* var currentUserId = Meteor.userId();*/
     var url  = event.target.url.value;
-    var urlMod = url.replace("watch?v=", "v/");
-    var yt_id = urlMod.match(/.{11}$/g);
-    Meteor.call('getVideoId', yt_id);
+    /*var yt_id = urlMod.match(/.{11}$/g);*/
     var creator = Meteor.user();
-    
-    if (url.indexOf("youtube.com") !=-1) {
-     Songs.insert({
-      urlMod: urlMod,
-      comment: "",
-      status: "Pendiente",
-      approved: false,
-      createdAt: new Date(),
-      createdBy: creator
-    });
-    } else {
-      alert("No Way Jose! SOLO videos de YouTube!")
-    }
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+      if (match && match[2].length == 11) {
+       console.log(match[2]);
+       Songs.insert({
+        video_id: match[2],
+        comment: "",
+        status: "Pendiente",
+        approved: false,
+        createdAt: new Date(),
+        createdBy: creator
+      });
+       
+      } else {
+        //error
+        alert("URL Incorrecta");
+      }
     
     event.target.url.value = ""
     

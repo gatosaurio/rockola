@@ -14,10 +14,11 @@
     <div class="row song">
         
       <div class="col-md-4">
-        <iframe class="youtube-player" type="text/html" width="300" height="180" src="{{urlMod}}?controls=0&showinfo=0&html5=1" frameborder="0" allowfullscreen>></iframe>
-        
-        <h5>{{createdBy.profile.name}}</h5>
+        <iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}" frameborder="0"></iframe>
+          
       </div>
+           
+      <h5>{{createdBy.profile.name}}</h5>
       <div class="col-md-8">  
         <h4>{{comment}}</h4>
         <h3>Status: {{status}}</h3>
