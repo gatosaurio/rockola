@@ -11,6 +11,10 @@
   display: none;
 }
 
-.approved {
-  border-color: green;
-}
+.navbar { border-radius: 0px; }
+
+.login-text-and-button { margin-top: 11px; }
+
+.login-display-name { color: #d1d1d1; }
+
+#login-buttons { margin-left: 9px; }

@@ -1,5 +1,5 @@
 Meteor.publish("allSongs", function(){
-  return Songs.find();
+  return Songs.find({});
 });
 
 /*Meteor.publish("userSongs", function() {
