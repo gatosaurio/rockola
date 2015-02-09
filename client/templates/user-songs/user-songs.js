@@ -35,25 +35,11 @@ Template.userSongs.events({
     event.preventDefault();
      var url  = event.target.url.value;
     /*var yt_id = urlMod.match(/.{11}$/g);*/
-    var creator = Meteor.user();
-    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-      if (match && match[2].length == 11) {
-       var video_id = match[2];
-       Songs.insert({
-        video_id: video_id,
-        comment: "",
-        status: "Pendiente",
-        approved: false,
-        createdAt: new Date(),
-        createdBy: creator
-      });
-      event.target.url.value = ""
-      } else {
-        //error
-        alert("URL Incorrecta");
-      }
+    Meteor.call('insertLink', url);
+    event.target.url.value = ""
+      
   },
+  
   'click .send': function(){
     var count =  Session.get("counter");
     Session.set("counter", count - 1);
