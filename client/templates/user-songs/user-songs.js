@@ -6,8 +6,8 @@ Meteor.startup(function() {
     setTimeout(function() {
       Session.update("counter", 3);
     }, 5000);
-
   }
+  
 });
 
 Template.userSongs.helpers({
@@ -22,11 +22,11 @@ Template.userSongs.helpers({
     });
   },
   
-  'json': function(){
-    var http = Session.get('httpResult');
-    return http;
+  /*'json': function(){
+    return Session.get('httpResult');
+ 
     
-  },
+  },*/
   
   'counter': function() {
     var count = Session.get('counter');
@@ -53,17 +53,16 @@ Template.userSongs.events({
     if (match && match[2].length == 11) {
      video_id = match[2];
      var title = jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
-     var videoTitle = data.entry.title.$t;
+     videoTitle = data.entry.title.$t;
      Session.set('httpResult', videoTitle);  
-     console.log(videoTitle);
+     
+
       });
-      /*Meteor.http.call("GET", "http://gdata.youtube.com/feeds/api/videos/" + video_id, function (err, result){
-        Session.set('httpResult', result)
-      });*/
+     var titleIns = Session.get('httpResult');
       
       Songs.insert({
         video_id: video_id,
-        //title: httpResult,
+        title: titleIns,
         comment: "",
         status: "Pendiente",
         approved: false,
@@ -72,6 +71,7 @@ Template.userSongs.events({
       });
     
     event.target.url.value = ""
+    Session.set('httpResult', "");
        } else {
       //error
       alert("URL Incorrecta");
