@@ -51,15 +51,7 @@ Template.userSongs.events({
         var videoTitle = data.entry.title.$t;
         var title = videoTitle;
 
-        Songs.insert({
-          video_id: video_id,
-          title: title,
-          comment: "",
-          status: "Pendiente",
-          approved: false,
-          createdAt: new Date(),
-          createdBy: creator
-        });
+        Meteor.call('insertSong',video_id,title,creator)
       });
 
       event.target.url.value = "";

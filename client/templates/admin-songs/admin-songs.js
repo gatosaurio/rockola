@@ -10,26 +10,17 @@ Template.adminSongs.events({
     var songId = this._id;
     var comment = event.target.comment.value; 
     var status = tmpl.find('.status').value;
-    Songs.update(
-      {_id: songId}, 
-      {$set: {comment: comment, status: status}}
-    );  
+    Meteor.call('updateCommentStatus', songId,comment,status);
     event.target.comment.value = "";
     //event.target.status.value = "";
   },
   
   "click .toggle-checked": function () {
     // Set the checked property to the opposite of its current value
-    Songs.update(this._id, {$set: {approved: ! this.approved}});
+    var songId = this._id;
+    var approved;
+    Meteor.call('updateApproved', songId,approved);
   }
   
-  /*"change .status": function(event, tmpl){
-    var songId = this._id;
-    var status = tmpl.find('.status').value;
-    Songs.update(
-      {_id: songId}, 
-      {$set: {status: status}}
-    ); 
-  }*/
   
 });
