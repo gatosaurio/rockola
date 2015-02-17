@@ -41,7 +41,7 @@ Template.userSongs.events({
   "submit form": function(event) {
     event.preventDefault();
     var url = event.target.url.value;
-    /*var yt_id = urlMod.match(/.{11}$/g);*/
+    //var yt_id = urlMod.match(/.{11}$/g);
     var creator = Meteor.user();
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
