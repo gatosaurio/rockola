@@ -7,6 +7,11 @@ Meteor.startup(function() {
       Session.update("counter", 3);
     }, 5000);
   }
+  if(Meteor.user().profile.name == "Piter de Vries"){
+    console.log("autorizado");
+  }else{
+    console.log("no autorizado");
+  }
  
 });
 
@@ -40,16 +45,14 @@ Template.userSongs.events({
   "submit form": function(event) {
     event.preventDefault();
     var url = event.target.url.value;
-    /*var yt_id = urlMod.match(/.{11}$/g);*/
     var creator = Meteor.user();
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
     if (match && match[2].length == 11) {
-     video_id = match[2];
-     var title = jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
-     videoTitle = data.entry.title.$t;
-     console.log(videoTitle);
-     title = videoTitle;
+    var video_id = match[2];
+     jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
+     var videoTitle = data.entry.title.$t;
+     var title = videoTitle;
     
       Songs.insert({
         video_id: video_id,
