@@ -8,16 +8,19 @@
         </div>
         <div class="col-md-4">
           <h5>Enviado por: {{createdBy.profile.name}}</h5>
-          <iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}?controls=0" frameborder="0"></iframe>
+          <!--<iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}?controls=0" frameborder="0"></iframe>-->
+          <img class="img-responsive thumb" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
+        
         </div>
         <div class="col-md-8 panel-body">
           <form>
             <div class="form-group">
+              <h4><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h4>
               <input type="text" class="form-control" name="comment" placeholder="comentario" />
               Aprobar: <!--<input type="checkbox" checked="{{approved}}" class="toggle-checked" />-->
               <!--<input type="text" class="form-control" name="status" placeholder="status" />-->
               <select class="status">
-                <option>...</option>
+                
                 <option>Aprobado</option>
                 <option>Rechazado</option>
               </select>

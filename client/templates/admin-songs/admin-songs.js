@@ -9,7 +9,6 @@ Template.adminSongs.events({
     event.preventDefault();
     var songId = this._id;
     var comment = event.target.comment.value;
-    //var approved = event.target.myCheckbox.value;
     var status = tmpl.find('.status').value;
     
     Meteor.call('updateCommentStatus', songId,comment,status);
@@ -17,16 +16,4 @@ Template.adminSongs.events({
     //event.target.approved.value = "";
   },
   
-  "click .toggle-checked": function () {
-    // Set the checked property to the opposite of its current value
-    var songId = this._id;
-    var approved;
-    Meteor.call('updateApproved', songId,approved);
-  }
-});
-
-Template.adminSongs.helpers({
-  isMyCheckboxChecked: function(value) {
-    return (value = true ? 'checked' : '');
-  }
 });

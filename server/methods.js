@@ -10,7 +10,7 @@ Meteor.methods({
       createdBy: creator
     });
   },
-  'updateCommentStatus': function(songId,comment,status, approved){
+  'updateCommentStatus': function(songId,comment,status){
     Songs.update(
       {_id: songId}, 
       {$set: {comment: comment, status: status}}
