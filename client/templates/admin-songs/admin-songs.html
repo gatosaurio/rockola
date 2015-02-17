@@ -2,19 +2,22 @@
   
   <div>
     {{#each adminSongs}}
-      <div class="row song">
-        
+      <div class="row song panel panel-default">
+        <div class="col-md-12 panel-heading">
+          <h4 class="panel-title">{{title}}</h4>
+        </div>
         <div class="col-md-4">
           <h5>Enviado por: {{createdBy.profile.name}}</h5>
           <iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}?controls=0" frameborder="0"></iframe>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 panel-body">
           <form>
             <div class="form-group">
               <input type="text" class="form-control" name="comment" placeholder="comentario" />
-              Aprobar: <input type="checkbox" checked="{{approved}}" class="toggle-checked" />
+              Aprobar: <!--<input type="checkbox" checked="{{approved}}" class="toggle-checked" />-->
               <!--<input type="text" class="form-control" name="status" placeholder="status" />-->
               <select class="status">
+                <option>...</option>
                 <option>Aprobado</option>
                 <option>Rechazado</option>
               </select>

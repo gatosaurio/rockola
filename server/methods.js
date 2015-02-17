@@ -10,13 +10,14 @@ Meteor.methods({
       createdBy: creator
     });
   },
-  'updateCommentStatus': function(songId,comment,status){
+  'updateCommentStatus': function(songId,comment,status, approved){
     Songs.update(
       {_id: songId}, 
       {$set: {comment: comment, status: status}}
     );  
   },
-  'updateApproved': function(songId, approved){
-    Songs.update({_id: songId}, {$set: {approved: ! this.approved}});
-  }
+ /*'updateApproved': function(songId, approved){
+   Songs.update({_id: songId}, {$set: {approved: !songId.approved}});
+   //Songs.update(this._id, {$set: {approved: ! this.approved}});
+  }*/
 });

@@ -9,6 +9,6 @@ Meteor.publish("allSongs", function(){
   
 
 Meteor.publish("approvedSongs", function(){
-  return Songs.find({approved: true});
+  return Songs.find({status: "Aprobado"});
 });
 

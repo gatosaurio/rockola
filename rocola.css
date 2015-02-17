@@ -1,16 +1,42 @@
 /* CSS declarations go here */
 
-.song {
-  border: 2px solid #d4d4d4;
-  padding: .5em 0;
-  margin-bottom: 1.5em;
-  border-radius: 5px;
+h1, h2, h3, h4, h5, p, a {
+  font-family: 'Roboto', sans-serif;
+}
+
+.title { 
+  margin: 0;
+  margin-top: .5em;
+  font-weight: 300;
+}
+
+/*.song h5 {
+  margin-top: 45px;
+}*/
+
+.username {
+  font-family: 'Tangerine', cursive;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.thumb {
+  height: 160px;
 }
 
 .disabled {
   display: none;
 }
 
+.panel-footer { 
+  position: relative;
+  padding: 1px 15px; 
+}
+.btn-success{
+  position: absolute;
+  top: 0.15em;
+  right: .3em;
+}
 .navbar { border-radius: 0px; }
 
 .login-text-and-button { margin-top: 11px; }
@@ -18,3 +44,35 @@
 .login-display-name { color: #d1d1d1; }
 
 #login-buttons { margin-left: 9px; }
+
+
+@media (max-width: 768px)  { 
+  
+  .description { margin: 1em .05em; }
+  
+  .song {margin-bottom: 1.5em;}
+  
+  /*.song h5 { margin-top: 15px; }*/
+  
+  .title { font-size: 18px; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  .panel {
+    margin-bottom: 39px;
+    max-height: 348px;
+  }
+  .img-row {
+    width: 97%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .panel {
+    margin-bottom: 50px;
+    max-height: 319px;
+  }
+  
+}
+
+
