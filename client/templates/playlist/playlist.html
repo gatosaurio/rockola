@@ -4,10 +4,18 @@
   {{#each playList}}
   
   <div class="row song">
-      <div class="col-md-8">
-        <iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}" frameborder="0"></iframe>
+        
+      <div class="col-md-4">
+        <img src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
       </div>
-  </div>
+
+      <h5>{{createdBy.profile.name}}</h5>
+      <div class="col-md-8">  
+        <h4>{{comment}}</h4>
+        <h3>Status: {{status}}</h3>
+        <h5 class="title">{{title}}</h5>
+      </div>
+    </div>
   
   {{/each}}
 </template>

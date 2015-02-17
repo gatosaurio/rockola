@@ -4,7 +4,7 @@
     {
       "host": "104.236.24.140",
       "username": "root",
-      //"password": "venisabias987"
+      //"password": ""
       // or pem file (ssh based authentication)
       "pem": "~/.ssh/id_rsa"
     }

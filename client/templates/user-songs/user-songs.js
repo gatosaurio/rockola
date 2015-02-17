@@ -7,7 +7,7 @@ Meteor.startup(function() {
       Session.update("counter", 3);
     }, 5000);
   }
-  
+
 });
 
 Template.userSongs.helpers({
@@ -21,13 +21,8 @@ Template.userSongs.helpers({
       }
     });
   },
-  
-  /*'json': function(){
-    return Session.get('httpResult');
- 
-    
-  },*/
-  
+
+
   'counter': function() {
     var count = Session.get('counter');
     return count;
@@ -51,28 +46,24 @@ Template.userSongs.events({
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
     if (match && match[2].length == 11) {
-     video_id = match[2];
-     var title = jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
-     videoTitle = data.entry.title.$t;
-     Session.set('httpResult', videoTitle);  
-     
+      var video_id = match[2];
+      jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
+        var videoTitle = data.entry.title.$t;
+        var title = videoTitle;
 
+        Songs.insert({
+          video_id: video_id,
+          title: title,
+          comment: "",
+          status: "Pendiente",
+          approved: false,
+          createdAt: new Date(),
+          createdBy: creator
+        });
       });
-     var titleIns = Session.get('httpResult');
-      
-      Songs.insert({
-        video_id: video_id,
-        title: titleIns,
-        comment: "",
-        status: "Pendiente",
-        approved: false,
-        createdAt: new Date(),
-        createdBy: creator
-      });
-    
-    event.target.url.value = ""
-    Session.set('httpResult', "");
-       } else {
+
+      event.target.url.value = "";
+    } else {
       //error
       alert("URL Incorrecta");
     }
@@ -84,5 +75,3 @@ Template.userSongs.events({
 
   }
 });
-
-
