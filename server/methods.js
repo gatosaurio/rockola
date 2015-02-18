@@ -16,8 +16,14 @@ Meteor.methods({
       {$set: {comment: comment, status: status}}
     );  
   },
- /*'updateApproved': function(songId, approved){
-   Songs.update({_id: songId}, {$set: {approved: !songId.approved}});
-   //Songs.update(this._id, {$set: {approved: ! this.approved}});
+  
+  'removeSong': function(selectedSong){
+     Songs.remove(selectedSong)
+  }
+  /*'updateStatus': function(songId, status){
+    Songs.update(
+      {_id: songId}, 
+      {$set: {status: status}}
+    );
   }*/
 });

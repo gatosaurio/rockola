@@ -1,34 +1,36 @@
 <template name="adminSongs">
-  
   <div>
-    {{#each adminSongs}}
-      <div class="row">
-        <div class="">
-          <h4 class="panel-title">{{title}}</h4>
+    <div class="row">
+      {{#each adminSongs}}
+      <div class="col m3 card {{selectedClass}}">
+        <div class="card-heading">
         </div>
-        <div class="">
-          <h5>Enviado por: {{createdBy.profile.name}}</h5>
-          <!--<iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}?controls=0" frameborder="0"></iframe>-->
-          <img class="img-responsive" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
-        
+        <div class="card-image">
+          <img class="img-responsive thumb admin-img" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
         </div>
-        <div class="">
+        <div class="card-content">
           <form>
             <div class="">
-              <h4><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h4>
+              <h5><span class="admin-title">{{title}}</span></h5>
+              <p><span class="title">{{createdBy.profile.name}}</span></p>
+              <h6><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h6>
+              <!--<textarea id="textarea1" name="comment" class="materialize-textarea" placeholder="comentario"></textarea>-->
               <input type="text" class="" name="comment" placeholder="comentario" />
-              Aprobar: <!--<input type="checkbox" checked="{{approved}}" class="toggle-checked" />-->
-              <!--<input type="text" class="form-control" name="status" placeholder="status" />-->
-              <select class="status">
-                
-                <option>Aprobado</option>
-                <option>Rechazado</option>
-              </select>
+              <div class="s12 m6">
+                <select class="status center-align">
+                  <option value="Aprobado">Aprobado</option>
+                  <option value="Rechazado">Rechazado</option>
+                </select>
+              </div>
             </div>
-            <input type="submit" class="" value="enviar"/>
+            <div class="card-action valign-wrapper">
+              <button type="button" class="remove btn btn-success btn-lg valign">Borrar</button>
+              <input type="submit" class="send btn btn-success btn-lg valign" value="enviar"/>
+            </div>
           </form>
         </div>
       </div>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 </template>

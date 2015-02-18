@@ -1,15 +1,5 @@
 Session.setDefaultPersistent("counter", 3);
 
-Meteor.startup(function() {
-  var count = Session.get("counter");
-  if (count === 0) {
-    setTimeout(function() {
-      Session.update("counter", 3);
-    }, 5000);
-  }
-
-});
-
 Template.userSongs.helpers({
   'songs': function() {
     var creator = Meteor.user();
@@ -22,7 +12,6 @@ Template.userSongs.helpers({
     });
   },
 
-
   'counter': function() {
     var count = Session.get('counter');
     return count;
@@ -30,7 +19,7 @@ Template.userSongs.helpers({
 
   'disableForm': function() {
     var counter = Session.get('counter');
-    if (counter === 0) {
+    if (counter <= 0) {
       return "disabled"
     }
   }
