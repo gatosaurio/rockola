@@ -2,6 +2,7 @@ Template.adminSongs.helpers ({
   'adminSongs': function(){
     return Songs.find({}, {sort: {createdAt: -1}})
   }
+  
 });
 
 Template.adminSongs.events({
@@ -14,6 +15,6 @@ Template.adminSongs.events({
     Meteor.call('updateCommentStatus', songId,comment,status);
     event.target.comment.value = "";
     //event.target.approved.value = "";
-  },
+  }
   
 });

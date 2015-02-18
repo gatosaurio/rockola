@@ -8,11 +8,14 @@ h1, h2, h3, h4, h5, p, a {
   margin: 0;
   margin-top: .5em;
   font-weight: 300;
+  font-size: 1.32em;
 }
 
 /*.song h5 {
   margin-top: 45px;
 }*/
+
+.selected { box-shadow: 1.7px 1.8px 5px #111; }
 
 .username {
   font-family: 'Tangerine', cursive;
@@ -21,7 +24,7 @@ h1, h2, h3, h4, h5, p, a {
 }
 
 .thumb {
-  height: 160px;
+  margin-bottom: 6px;
 }
 
 .disabled {
@@ -53,6 +56,11 @@ h1, h2, h3, h4, h5, p, a {
   .song {margin-bottom: 1.5em;}
   
   /*.song h5 { margin-top: 15px; }*/
+  
+  .thumb { 
+    margin-top: 8px;
+   margin-bottom: 0;
+ }
   
   .title { font-size: 18px; }
 }
