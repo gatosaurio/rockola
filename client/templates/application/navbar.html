@@ -3,15 +3,21 @@
     <nav>
       <div class="nav-wrapper">
         
+        {{#if currentUser}} 
+        <ul id="nav-mobile" class="center-align">
           
-        <ul id="nav-mobile" class="left">
           <li><a href="/playlist">Playlist</a></li>
           <li><a href="/">Mis Canciones</a></li>
-          <li><a href="/admin339">Admin</a></li>
         </ul>
-        <ul id="nav-mobile" class="right">
-          <li>{{>loginButtons}}</li>
+          {{else}}  
+        
+        <ul id="nav-mobile" class="right-align">
+          <li><a href="/playlist">Playlist</a></li>
+          <li>{{>loginButtons}}</li>  
         </ul>
+        {{/if}} 
+        
+        
        
       </div>
     </nav>

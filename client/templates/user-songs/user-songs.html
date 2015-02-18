@@ -1,10 +1,14 @@
 <template name="userSongs">
-
+  {{#if currentUser}}
   <div class="song-form {{disableForm}}">
     {{> addSongForm }}
      Canciones restantes: {{ counter }}
      <hr>
+     {{>loginButtons}}
   </div>
+    {{else}}
+  <h3>Debes estar logueado para enviar canciones</h3>
+  {{/if}}
   <div class="song-list">
     <h2>Canciones enviadas</h2>
     <div id="titulo"></div>

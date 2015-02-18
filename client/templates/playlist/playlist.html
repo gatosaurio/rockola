@@ -17,7 +17,11 @@
           <h6><span class="">{{title}}</span></h6>
         </div> 
         <div class="card-action valign-wrapper">
-          <button class="btn btn-success btn-lg valign" type="submit">Votar</button>  
+          {{#if currentUser}}
+          <button class="btn btn-success btn-lg valign" type="submit">Votar</button>
+            {{else}}
+          <h5>Debes loguearte para Votar!</h5>
+          {{/if}}
         </div>
       </div>
       
