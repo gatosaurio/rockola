@@ -2,21 +2,21 @@
   
   <div>
     {{#each adminSongs}}
-      <div class="row song panel panel-default">
-        <div class="col-md-12 panel-heading">
+      <div class="row">
+        <div class="">
           <h4 class="panel-title">{{title}}</h4>
         </div>
-        <div class="col-md-4">
+        <div class="">
           <h5>Enviado por: {{createdBy.profile.name}}</h5>
           <!--<iframe type="text/html" width="300" height="180" src="http://www.youtube.com/embed/{{video_id}}?controls=0" frameborder="0"></iframe>-->
-          <img class="img-responsive thumb" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
+          <img class="img-responsive" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
         
         </div>
-        <div class="col-md-8 panel-body">
+        <div class="">
           <form>
-            <div class="form-group">
+            <div class="">
               <h4><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h4>
-              <input type="text" class="form-control" name="comment" placeholder="comentario" />
+              <input type="text" class="" name="comment" placeholder="comentario" />
               Aprobar: <!--<input type="checkbox" checked="{{approved}}" class="toggle-checked" />-->
               <!--<input type="text" class="form-control" name="status" placeholder="status" />-->
               <select class="status">
@@ -25,7 +25,7 @@
                 <option>Rechazado</option>
               </select>
             </div>
-            <input type="submit" class="btn btn-default" value="enviar"/>
+            <input type="submit" class="" value="enviar"/>
           </form>
         </div>
       </div>

@@ -3,27 +3,24 @@
   <h3>Now Playing:</h3>
   <div class="row">
     {{#each playList}}    
-      <div class="col-md-4 col-sm-6 col-lg-3">
-        <div class="song panel panel-default {{selectedClass}}">
-          <div class="panel-heading">
-            <h4 class="title">{{title}}</h4>
-            <span class="pull-right">27</span>
-          </div>
-
-
-
-          <img class="img-responsive thumb center-block" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
-
-          <div class="description">  
-          </div>
-
-          <div class="panel-footer">
-            <h5>Envía: <span class="username">{{createdBy.profile.name}}</span></h5>
-            <button class="btn btn-success btn-lg" type="submit">Votar</button>
-          </div>  
-
+      
+      <div class="col s12 m4 l3 card">
+        <div class="card-heading">
+          <h3 class="right-align score">27</h3>
         </div>
-    </div>
+        <div class="card-image">
+          <img class="img-responsive thumb" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
+          <span class="card-title">{{createdBy.profile.name}}</span>
+        </div>
+        <!--<span>27</span>-->          
+        <div class="card-content">
+          <h6><span class="">{{title}}</span></h6>
+        </div> 
+        <div class="card-action valign-wrapper">
+          <button class="btn btn-success btn-lg valign" type="submit">Votar</button>  
+        </div>
+      </div>
+      
     {{/each}}
-  </div>  
+   </div>
 </template>

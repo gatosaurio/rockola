@@ -5,9 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-mizzao:bootstrap-3
 iron:router
 u2622:persistent-session
 accounts-twitter
 accounts-ui
 http
+d0minikk:materialize-meteor

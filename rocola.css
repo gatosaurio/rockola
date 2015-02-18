@@ -1,86 +1,11 @@
-/* CSS declarations go here */
+.score { margin-top: 1rem; }
 
-h1, h2, h3, h4, h5, p, a {
-  font-family: 'Roboto', sans-serif;
+@media (min-width: 601px) and (max-width: 991px) {
+  .card { height: 30rem; }
 }
-
-.title { 
-  margin: 0;
-  margin-top: .5em;
-  font-weight: 300;
-  font-size: 1.32em;
-}
-
-/*.song h5 {
-  margin-top: 45px;
+/*
+@media (min-width: 992px){
+ 
+  .card { height: 26rem; }
+  
 }*/
-
-.selected { box-shadow: 1.7px 1.8px 5px #111; }
-
-.username {
-  font-family: 'Tangerine', cursive;
-  font-size: 27px;
-  font-weight: 700;
-}
-
-.thumb {
-  margin-bottom: 6px;
-}
-
-.disabled {
-  display: none;
-}
-
-.panel-footer { 
-  position: relative;
-  padding: 1px 15px; 
-}
-.btn-success{
-  position: absolute;
-  top: 0.15em;
-  right: .3em;
-}
-.navbar { border-radius: 0px; }
-
-.login-text-and-button { margin-top: 11px; }
-
-.login-display-name { color: #d1d1d1; }
-
-#login-buttons { margin-left: 9px; }
-
-
-@media (max-width: 768px)  { 
-  
-  .description { margin: 1em .05em; }
-  
-  .song {margin-bottom: 1.5em;}
-  
-  /*.song h5 { margin-top: 15px; }*/
-  
-  .thumb { 
-    margin-top: 8px;
-   margin-bottom: 0;
- }
-  
-  .title { font-size: 18px; }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  
-  .panel {
-    margin-bottom: 39px;
-    max-height: 348px;
-  }
-  .img-row {
-    width: 97%;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px){
-  .panel {
-    margin-bottom: 50px;
-    max-height: 319px;
-  }
-  
-}
-
-
