@@ -1,33 +1,36 @@
 <template name="userSongs">
-  {{#if currentUser}}
-  <div class="song-form {{disableForm}}">
-    {{> addSongForm }}
-     Canciones restantes: {{ counter }}
-     <hr>
-     {{>loginButtons}}
-  </div>
-    {{else}}
-  <h3>Debes estar logueado para enviar canciones</h3>
-  {{/if}}
-  <div class="song-list">
-    <h2>Canciones enviadas</h2>
-    <div id="titulo"></div>
-    {{#each songs}}
-    <div class="row song">
-        
-      <div class="col-sm-4">
-        <img class="img-responsive" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
-      </div>
-
-      <h5>{{createdBy.profile.name}}</h5>
-      <div class="col-sm-8">  
-        <h4>{{comment}}</h4>
-        <h3>Status: {{status}}</h3>
-        <h5 class="title">{{title}}</h5>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-
   
+  {{#if currentUser}}
+  <div class="song-form row {{disableForm}} center-align">
+    <h5 class="">Canciones restantes: {{ counter }}</h5>
+    {{> addSongForm }}
+    
+  </div>
+  {{else}}
+  <h3>Debes estar logueado para ver tus canciones enviadas!</h3>
+  {{/if}}
+  {{#if currentUser}}
+  <div class="right-align">{{>loginButtons}}</div>
+  <div class="song-list">
+    <div class="row">
+      {{#each songs}}
+      <div class="col l3 m4 card u-songs">
+        <div class="card-heading">
+          <h3 class="score">39</h3>
+        </div>
+        <div class="card-image">
+          <img class="img-responsive" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
+        </div>
+        <div class="card-content">
+          <div class="col-sm-8">
+            <h5 class="title">{{title}}</h5>
+            <h6 class="status">Status: {{status}}</h6>
+            <h6>{{comment}}</h6>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
 </template>

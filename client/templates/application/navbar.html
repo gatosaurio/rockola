@@ -6,13 +6,13 @@
         {{#if currentUser}} 
         <ul id="nav-mobile" class="center-align">
           
-          <li><a href="/playlist">Playlist</a></li>
-          <li><a href="/">Mis Canciones</a></li>
+          <li class="waves-effect waves-light"><a href="/">Playlist</a></li>
+          <li class="waves-effect waves-light"><a href="/mis-canciones">Mis Canciones</a></li>
         </ul>
           {{else}}  
         
         <ul id="nav-mobile" class="right-align">
-          <li><a href="/playlist">Playlist</a></li>
+          <li><a href="/">Playlist</a></li>
           <li>{{>loginButtons}}</li>  
         </ul>
         {{/if}} 

@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       {{#each adminSongs}}
-      <div class="col m3 card {{selectedClass}}">
+      <div class="col m4 card {{selectedClass}}">
         <div class="card-heading">
         </div>
         <div class="card-image">
@@ -11,16 +11,22 @@
         <div class="card-content">
           <form>
             <div class="">
-              <h5><span class="admin-title">{{title}}</span></h5>
+              <h6><span class="admin-title">{{title}}</span></h6>
               <p><span class="title">{{createdBy.profile.name}}</span></p>
               <h6><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h6>
               <!--<textarea id="textarea1" name="comment" class="materialize-textarea" placeholder="comentario"></textarea>-->
-              <input type="text" class="" name="comment" placeholder="comentario" />
-              <div class="s12 m6">
-                <select class="status center-align">
-                  <option value="Aprobado">Aprobado</option>
-                  <option value="Rechazado">Rechazado</option>
-                </select>
+              
+              <div class="row">
+                <div class="input-field">
+                  <input type="text" class="" name="comment" placeholder="comentario" />
+                </div>
+                <div class="input-field">
+                  <select class="status center-align">
+                    <option value="Aprobado">Aprobado</option>
+                    <option value="Rechazado">Rechazado</option>
+                  </select>
+                </div>
+                
               </div>
             </div>
             <div class="card-action valign-wrapper">

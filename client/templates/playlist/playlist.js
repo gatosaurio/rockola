@@ -13,7 +13,7 @@ Template.playList.helpers({
 });
 
 Template.playList.events({
-  'click .thumb': function(){
+  'click .card': function(){
     var songId = this._id;
     Session.set('selectedSong', songId);
   }

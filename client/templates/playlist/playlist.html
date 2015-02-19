@@ -1,10 +1,10 @@
 <template name="playList">
   
-  <h3>Now Playing:</h3>
+  <h4>Elige una canción y vota:</h4>
   <div class="row">
     {{#each playList}}    
       
-      <div class="col s12 m4 l3 card z-depth-1 {{selectedClass}}">
+      <div class="col s6 m4 l2 card playlist z-depth-1 {{selectedClass}}">
         <div class="card-heading">
           <h3 class="right-align score">27</h3>
         </div>
@@ -13,14 +13,14 @@
           <span class="card-title">{{createdBy.profile.name}}</span>
         </div>
         <!--<span>27</span>-->          
-        <div class="card-content">
-          <h6><span class="">{{title}}</span></h6>
+        <div class="">
+          <h6><span class="title">{{title}}</span></h6>
         </div> 
         <div class="card-action valign-wrapper">
           {{#if currentUser}}
-          <button class="btn btn-success btn-lg valign" type="submit">Votar</button>
+          <button class="btn waves-effect waves-light valign btn-vote" type="submit">Votar</button>
             {{else}}
-          <h5>Debes loguearte para Votar!</h5>
+          <h6>Debes loguearte para Votar!</h6>
           {{/if}}
         </div>
       </div>

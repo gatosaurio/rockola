@@ -1,5 +1,8 @@
 
-.score { margin-top: 1rem; }
+.score {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
 
 .selected {
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
@@ -7,9 +10,34 @@
 }
 .card-content { padding-top:0!important; }
 
+
+
+.card {
+  position: relative;
+}
+
+.card-title {
+  position: absolute!important;
+  top: 0;
+  left: 5px!important;
+  padding: 0!important;
+  font-size: 1.1rem!important;
+  text-shadow: 1px 1px 6px #111;
+}
+
+.card.u-songs .status{
+  position: absolute;
+  bottom: 10px;
+}
+
 .admin-title {
-  font-size: 1.5rem;
-  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
 }
 .admin-img { height: 122px; }
 
@@ -19,8 +47,32 @@
   margin-right: 2rem;
 }
 
+@media (max-width: 600px){
+  .card.playlist {
+    height: 24.4rem;
+  }
+  
+  .u-songs.title {
+    margin-top: 0;
+  }
+  .u-songs .status{
+    bottom: 0;
+  }
+}
+
+@media (min-width: 601px){
+  .card.u-songs {
+    height: 26.2rem;
+  }
+}
+
 @media (min-width: 601px) and (max-width: 991px) {
-  .card { height: 30rem; }
+  .card.playlist { height: 25rem; }
+  .btn-vote{ margin-top: -6px; }
+}
+
+@media (min-width: 992px) {
+  .card.playlist { height: 22rem; }
 }
 /*
 @media (min-width: 992px){

@@ -1,4 +1,4 @@
-Session.setDefaultPersistent("counter", 3);
+Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
   'songs': function() {
