@@ -1,7 +1,7 @@
 Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
-  'songs': function() {
+  'userSongs': function() {
     var creator = Meteor.user();
     return Songs.find({
       createdBy: creator
@@ -39,8 +39,9 @@ Template.userSongs.events({
       jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
         var videoTitle = data.entry.title.$t;
         var title = videoTitle;
+        var score = 0;
 
-        Meteor.call('insertSong',video_id,title,creator)
+        Meteor.call('insertSong',video_id,title,score,creator)
       });
 
       event.target.url.value = "";

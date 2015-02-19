@@ -1,8 +1,9 @@
 Meteor.methods({
-  'insertSong': function(video_id,title,creator){
+  'insertSong': function(video_id,title,score,creator){
     Songs.insert({
       video_id: video_id,
       title: title,
+      score: score,
       comment: "",
       status: "Pendiente",
       approved: false,
@@ -19,6 +20,10 @@ Meteor.methods({
   
   'removeSong': function(selectedSong){
      Songs.remove(selectedSong)
+  },
+  
+  'updateScore': function(selectedSong){
+    Songs.update(selectedSong, {$inc: {score: 1} });
   }
   /*'updateStatus': function(songId, status){
     Songs.update(

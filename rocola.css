@@ -1,17 +1,21 @@
+.visible { visibility: visible!important; }
+
+.btn-vote { visibility: hidden; }
 
 .score {
-  margin-top: 1rem;
+  margin-top: 0.62rem;
+  color: rgb(115, 90, 94);
+  font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .selected {
   box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
   background-color: #F7E4E5;
+  display: block!important;
 }
 .card-content { padding-top:0!important; }
-
-
-
 .card {
   position: relative;
 }
@@ -36,9 +40,12 @@
 }
 
 .title {
-  font-weight: 600;
-  font-size: 14px;
+  font-family: "Roboto", sans-serif
+  font-size: 12.8px!important;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight:bold;
 }
+
 .admin-img { height: 122px; }
 
 .disabled { display: none; }

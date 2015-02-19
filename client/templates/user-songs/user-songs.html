@@ -9,14 +9,14 @@
   {{else}}
   <h3>Debes estar logueado para ver tus canciones enviadas!</h3>
   {{/if}}
-  {{#if currentUser}}
+ 
   <div class="right-align">{{>loginButtons}}</div>
   <div class="song-list">
     <div class="row">
-      {{#each songs}}
+      {{#each userSongs}}
       <div class="col l3 m4 card u-songs">
         <div class="card-heading">
-          <h3 class="score">39</h3>
+          <h3 class="score">{{score}}</h3>
         </div>
         <div class="card-image">
           <img class="img-responsive" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
@@ -32,5 +32,5 @@
       {{/each}}
     </div>
   </div>
-  {{/if}}
+ 
 </template>
