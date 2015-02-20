@@ -22,13 +22,9 @@ Meteor.methods({
      Songs.remove(selectedSong)
   },
   
-  'updateScore': function(selectedSong){
+  'vote': function(selectedSong){
     Songs.update(selectedSong, {$inc: {score: 1} });
   }
-  /*'updateStatus': function(songId, status){
-    Songs.update(
-      {_id: songId}, 
-      {$set: {status: status}}
-    );
-  }*/
 });
+
+

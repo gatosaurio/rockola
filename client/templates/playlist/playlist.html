@@ -1,6 +1,7 @@
 <template name="playList">
   
   <h4>Elige una canción y vota:</h4>
+  <h5>Votos Restantes: <span>{{votes}}</span></h5>
   <div class="row">
     {{#each playList}}    
       
@@ -17,7 +18,7 @@
         <div class="">
           <h6 class="title">{{title}} <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank"><i class="icon tiny mdi-action-visibility"></i></a></h6>
         </div> 
-        <div class="card-action valign-wrapper">
+        <div class="card-action valign-wrapper {{disableOwnVote}} {{disableVote}}">
           {{#if currentUser}}
           <button class="btn waves-effect waves-light valign btn-vote {{visibleClass}}" type="submit">Votar</button>
             {{else}}
