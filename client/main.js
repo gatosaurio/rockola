@@ -9,6 +9,6 @@ Meteor.startup(function() {
   if (votes <= 0) {
     setTimeout(function() {
       Session.update('votes', 13);
-    }, 600000);
+    }, 5000);
   }
 });

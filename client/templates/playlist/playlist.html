@@ -1,20 +1,21 @@
 <template name="playList">
   
-  <h4>Elige una canción y vota:</h4>
-  <h5>Votos Restantes: <span>{{votes}}</span></h5>
+  <div class="row valign-wrapper heading">
+    <h1 class="col s12 m8 headline">Pick une Lied &amp; Vote!</h1>
+    
+    <h5 class="col s12 m4 right-align valign hide-on-small-only"><span class="retro-count">{{votes}}</span> remaining</h5>
+  </div>  
   <div class="row">
+    
     {{#each playList}}    
-      
       <div id="playlist" class="col s6 m4 l2 card playlist z-depth-1 {{selectedClass}}">
-        <div class="card-heading">
-          
+        <div class="card-heading">          
           <h3 class="score right-align">{{score}}</h3>
         </div>
         <div class="card-image">
           <img class="img-responsive thumb" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
           <span class="card-title">{{createdBy.profile.name}}</span>
-        </div>
-  
+        </div>  
         <div class="">
           <h6 class="title">{{title}} <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank"><i class="icon tiny mdi-action-visibility"></i></a></h6>
         </div> 
@@ -25,8 +26,8 @@
           <h6>Debes loguearte para Votar!</h6>
           {{/if}}
         </div>
-      </div>
-      
+      </div>      
     {{/each}}
+    
    </div>
 </template>

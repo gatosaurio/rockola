@@ -7,7 +7,7 @@ Template.userSongs.helpers({
       createdBy: creator
     }, {
       sort: {
-        createdAt: -1
+        score: -1, createdAt: -1
       }
     });
   },

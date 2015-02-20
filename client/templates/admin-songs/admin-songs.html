@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       {{#each adminSongs}}
-      <div class="col m4 card {{selectedClass}}">
+      <div class="col m3 card {{selectedClass}}">
         <div class="card-heading">
         </div>
         <div class="card-image">
@@ -11,9 +11,9 @@
         <div class="card-content">
           <form>
             <div class="">
-              <h6><span class="admin-title">{{title}}</span></h6>
+              <h6 class="title">{{title}} <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank"><i class="icon tiny mdi-action-visibility"></i></a></h6>
               <p><span class="title">{{createdBy.profile.name}}</span></p>
-              <h6><a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">Ver en YouTube</a></h6>
+              
               <!--<textarea id="textarea1" name="comment" class="materialize-textarea" placeholder="comentario"></textarea>-->
               
               <div class="row">
