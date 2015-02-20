@@ -1,3 +1,5 @@
+li {list-style: none;}
+
 .visible { visibility: visible!important; }
 
 .disabled { display: none; }
@@ -85,6 +87,11 @@ span.retro-count {
 }
 
 .admin-img { height: 122px; }
+
+.admin-action {
+  margin-top: 3em;
+  padding-bottom: 0
+}
 
 
 #login-buttons .login-buttons-with-only-one-button .login-button {

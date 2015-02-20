@@ -2,36 +2,43 @@
   <div>
     <div class="row">
       {{#each adminSongs}}
-      <div class="col m3 card {{selectedClass}}">
+      <div class="col s12 m4 l3 card admin {{selectedClass}}">
         <div class="card-heading">
         </div>
         <div class="card-image">
           <img class="img-responsive thumb admin-img" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
         </div>
-        <div class="card-content">
+        <div class="card-content valign-wrapper">
           <form>
             <div class="">
               <h6 class="title">{{title}} <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank"><i class="icon tiny mdi-action-visibility"></i></a></h6>
               <p><span class="title">{{createdBy.profile.name}}</span></p>
-              
               <!--<textarea id="textarea1" name="comment" class="materialize-textarea" placeholder="comentario"></textarea>-->
-              
               <div class="row">
                 <div class="input-field">
                   <input type="text" class="" name="comment" placeholder="comentario" />
                 </div>
-                <div class="input-field">
-                  <select class="status center-align">
-                    <option value="Aprobado">Aprobado</option>
-                    <option value="Rechazado">Rechazado</option>
-                  </select>
+              </div>
+              <div class="row">
+                <div class="input-field valign-wrapper">
+                  <div class="{{#if checked}}checked{{/if}}">
+                    <div class="switch">
+                      <label>
+                      
+                      <input type="checkbox" checked="{{checked}}" class="toggle-checked valign admin-action">
+                      <span class="lever"></span>
+                      Aprobar
+                      </label>
+                    </div>
+                  </div>
                 </div>
-                
               </div>
             </div>
-            <div class="card-action valign-wrapper">
-              <button type="button" class="remove btn btn-success btn-lg valign">Borrar</button>
-              <input type="submit" class="send btn btn-success btn-lg valign" value="enviar"/>
+            <div class="row">
+              <div class="card-action valign-wrapper col s12">
+                <button type="button" class="remove btn btn-success btn-lg valign">Borrar</button>
+                <input type="submit" class="send btn btn-success btn-lg valign" value="enviar"/>
+              </div>
             </div>
           </form>
         </div>

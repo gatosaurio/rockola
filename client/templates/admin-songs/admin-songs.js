@@ -21,9 +21,8 @@ Template.adminSongs.events({
     event.preventDefault();
     var songId = this._id;
     var comment = event.target.comment.value;
-    var status = tmpl.find('.status').value;
     
-    Meteor.call('updateCommentStatus', songId,comment, status);
+    Meteor.call('updateComment', songId,comment);
     event.target.comment.value = "";
     //event.target.approved.value = "";
   },
@@ -34,6 +33,11 @@ Template.adminSongs.events({
   'click .remove': function(){
     var selectedSong = Session.get('selectedSong');
     Meteor.call('removeSong', selectedSong);
+  },
+  "click .toggle-checked": function () {
+    var songId = this._id;
+    Meteor.call('toggleChecked',songId);
+    Meteor.call('updateStatus',songId);
   }
   /*"change .status": function(event, tmpl){
     var songId = this._id;

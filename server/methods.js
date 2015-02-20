@@ -6,16 +6,22 @@ Meteor.methods({
       score: score,
       comment: "",
       status: "Pendiente",
-      approved: false,
+      checked: false,
       createdAt: new Date(),
       createdBy: creator
     });
   },
-  'updateCommentStatus': function(songId,comment,status){
+  'updateComment': function(songId,comment){
     Songs.update(
       {_id: songId}, 
-      {$set: {comment: comment, status: status}}
+      {$set: {comment: comment}}
     );  
+  },
+  'updateStatus': function(songId){
+    Songs.update(
+    {_id: songId},
+    {$set: {status: "Aprobado"}}  
+    );
   },
   
   'removeSong': function(selectedSong){
@@ -24,7 +30,10 @@ Meteor.methods({
   
   'vote': function(selectedSong){
     Songs.update(selectedSong, {$inc: {score: 1} });
-  }
+  },
+  'toggleChecked': function(songId){
+    Songs.update(songId, {$set: {checked: ! songId.checked}});
+  } 
 });
 
 
