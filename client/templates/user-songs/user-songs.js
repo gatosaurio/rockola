@@ -1,3 +1,4 @@
+
 Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({

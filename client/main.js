@@ -1,8 +1,3 @@
-Tracker.autorun(function() {
-  Meteor.subscribe('users');
-  //git Meteor.subscribe('userData');
-});
-
 Meteor.startup(function() {
   var count = Session.get('counter');
     /*var votes = Session.get('votes');
@@ -21,4 +16,5 @@ Meteor.startup(function() {
       Session.update('votes', 13);
     }, 5000);
   }*/
+
 });
