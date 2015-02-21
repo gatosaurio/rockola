@@ -33,6 +33,9 @@ Meteor.methods({
   },
   'toggleChecked': function(songId){
     Songs.update(songId, {$set: {checked: ! songId.checked}});
+  },
+  'decreaseVotes': function(userId){
+    Meteor.users.update(userId, {$inc: {remaining_votes: -1} });
   }
   
 });

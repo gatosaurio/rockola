@@ -14,6 +14,12 @@ li {list-style: none;}
   margin-bottom: 2.5rem;
 }
 
+.counter {
+  margin-left: .5em;
+  margin-top: .6em;
+
+}
+
 .headline {
   font-family: 'Armata', sans-serif;
 }
@@ -33,12 +39,10 @@ span.retro-count {
   color: rgb(71, 4, 15);
 }
 
-#nav-mobile { position: relative; }
+#nav-mobile { 
+  position: relative;
+  margin-top: -3.5em;
 
-.nav-votes {
-  position: absolute;
-  top: 0;
-  left: 5px;
 }
 
 .btn-vote { visibility: hidden; }
