@@ -2,9 +2,11 @@
   
   <div class="row valign-wrapper heading">
     <h1 class="col s12 m8 headline">Pick une Lied &amp; Vote!</h1>
-    
-    <h5 class="col s12 m4 right-align valign hide-on-small-only"><span class="retro-count">{{votes}}</span> remaining</h5>
+    {{#each userData}}
+      <h5 class="col s12 m4 right-align valign hide-on-small-only"><span class="retro-count">{{remaining_votes}}</span> remaining</h5>
+    {{/each}}
   </div>  
+
   <div class="row">
     
     {{#each playList}}    
@@ -14,7 +16,7 @@
         </div>
         <div class="card-image">
           <img class="img-responsive thumb" src="http://img.youtube.com/vi/{{video_id}}/mqdefault.jpg"/>
-          <span class="card-title">{{createdBy.profile.name}}</span>
+          <span class="card-title">@{{createdBy.services.twitter.screenName}}</span>
         </div>  
         <div class="">
           <h6 class="title">{{title}} <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank"><i class="icon tiny mdi-action-visibility"></i></a></h6>

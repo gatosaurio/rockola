@@ -1,8 +1,16 @@
 Session.setDefaultPersistent('votes', 13);
 
+Tracker.autorun(function() {
+  Meteor.subscribe('users');
+  Meteor.subscribe('userData');
+});
+
 Template.playList.helpers({
   'playList': function(){
     return Songs.find({}, {sort: {score: -1, createdAt: -1} });
+  },
+  'userData': function(){
+    return Meteor.users.find({});
   },
   'selectedClass': function(){
     var songId = this._id;
@@ -40,6 +48,7 @@ Template.playList.helpers({
       return 'disabled'
     }
   }
+  
 });
 
 Template.playList.events({

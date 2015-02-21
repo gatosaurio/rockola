@@ -33,7 +33,8 @@ Meteor.methods({
   },
   'toggleChecked': function(songId){
     Songs.update(songId, {$set: {checked: ! songId.checked}});
-  } 
+  }
+  
 });
 
 
