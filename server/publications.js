@@ -6,13 +6,13 @@ Meteor.publish("approvedSongs", function(){
   return Songs.find({checked: true});
 });
 
-Meteor.publish('users', function() {
+/*Meteor.publish('users', function() {
     return Meteor.users.find({}, {fields: {services: 1}});
-});
+});*/
 
-Meteor.publish('userData', function() {
+/*Meteor.publish('userData', function() {
   if(!this.userId) return null;
   return Meteor.users.find(this.userId, {fields: {
     remaining_votes: 1,
   }});
-});
+});*/

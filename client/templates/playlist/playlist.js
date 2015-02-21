@@ -1,8 +1,9 @@
+//Session.setDefaultPersistent('votes', 13);
+
 Template.playList.helpers({
   'playList': function(){
     return Songs.find({}, {sort: {score: -1, createdAt: -1} });
   },
-  
   'selectedClass': function(){
     var songId = this._id;
     var selectedSong = Session.get('selectedSong');
@@ -16,6 +17,9 @@ Template.playList.helpers({
     if( songId == selectedSong ){
       return 'visible'
     }
+  },
+  'votes': function(){
+    return Session.get('votes');
   },
   'disableOwnVote': function(){
     var songId = this._id;
@@ -31,13 +35,11 @@ Template.playList.helpers({
   'disableVote': function(){
     var songId = this._id;
     var selectedSong = Session.get('selectedSong');
-    var votes = Session.get('votes')
-    console.log(votes);
+    var votes = Session.get('votes');
     if(votes <= 0){
       return 'disabled'
     }
-  },
-  
+  }
 });
 
 Template.playList.events({
@@ -48,7 +50,6 @@ Template.playList.events({
   'click .btn-vote': function(){
     var selectedSong = Session.get('selectedSong');
     Meteor.call('vote',selectedSong);
-    var userId = Meteor.user()._id;
-    Meteor.call('decreaseVotes', userId);
+    Session.set('votes', Session.get('votes') - 1);
   }
 });
