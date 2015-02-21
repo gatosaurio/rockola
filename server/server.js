@@ -3,4 +3,5 @@
   if (options.profile)
     user.profile = options.profile;
   return user;
-});*/
+});
+*/

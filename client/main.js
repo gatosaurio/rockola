@@ -16,5 +16,8 @@ Meteor.startup(function() {
       Session.update('votes', 13);
     }, 5000);
   }*/
+  Tracker.autorun(function() {
+    Meteor.subscribe('users');
+  });
 
 });

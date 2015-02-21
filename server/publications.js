@@ -10,8 +10,8 @@ Meteor.publish("allSongs", function(){
 });
 
 Meteor.publish("userSongs", function(){
-  var userId = Meteor.users.find(this.userId);
-  var creator = Meteor.users.findOne(_id = userId)
+  //var userId = Meteor.users.findOne(this.userId);
+  var creator = Meteor.users.findOne(_id = this.id)
   return Songs.find({createdBy: creator});
 });
 
@@ -19,8 +19,6 @@ Meteor.publish("approvedSongs", function(){
   return Songs.find({checked: true});
 });
 
-
-
-/*Meteor.publish('users', function() {
+Meteor.publish('users', function() {
     return Meteor.users.find({}, {fields: {services: 1}});
-});*/
+});
