@@ -1,4 +1,6 @@
-//Session.setDefaultPersistent('votes', 13);
+
+Meteor.subscribe('userData');
+
 
 Template.playList.helpers({
   'playList': function(){
