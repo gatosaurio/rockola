@@ -34,9 +34,10 @@ Template.playList.helpers({
   'disableVote': function(){
     var songId = this._id;
     var selectedSong = Session.get('selectedSong');
-    var userId = Meteor.user()._id;
+    /*var userId = Meteor.user()._id;
     var user = Meteor.users.findOne(_id = userId);
-    var remainingVotes = user.remaining_votes;
+    var remainingVotes = user.remaining_votes;*/
+    var remainingVotes = Session.get('votes');
     if(remainingVotes <= 0){
       return 'disabled'
     }
@@ -51,9 +52,10 @@ Template.playList.events({
   'click .btn-vote': function(){
     var selectedSong = Session.get('selectedSong');
     Meteor.call('vote',selectedSong);
-    var userId = Meteor.user()._id;
-    var user = Meteor.users.findOne(_id = userId);
-    Meteor.call('decreaseVotes', user);
+    //var userId = Meteor.user()._id;
+    //var user = Meteor.users.findOne(_id = userId);
+     Session.set("votes", Session.get("votes") - 1);
+    
     //var remainingVotes = user.remaining_votes;
     //console.log(remainingVotes);
     //Session.set('votes', remaining_votes);
