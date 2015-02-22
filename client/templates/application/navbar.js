@@ -1,3 +1,4 @@
+Session.get('votes');
 Template.navBar.helpers({
   /*'votes': function(){
     

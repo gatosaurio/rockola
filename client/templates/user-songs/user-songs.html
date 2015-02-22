@@ -1,19 +1,15 @@
 <template name="userSongs">
   
-  {{#if currentUser}}
+  
   <div class="song-form row {{disableForm}} center-align">
     <h5 class="">Canciones restantes: {{ counter }}</h5>
     {{> addSongForm }}
     
   </div>
-  {{else}}
-  <h3>Debes estar logueado para ver tus canciones enviadas!</h3>
-  {{/if}}
- 
-  <div class="right-align">{{>loginButtons}}</div>
+  <!--{{#if currentUser}}-->
   <div class="song-list">
     <div class="row">
-      {{#each userSongs}}
+      {{#each uSongs}}
       <div class="col s6 m4 l2 card u-songs">
         <div class="card-heading">
           <h3 class="score">{{score}}</h3>
@@ -32,5 +28,10 @@
       {{/each}}
     </div>
   </div>
+  <!--{{else}}
+  <h3>Debes estar logueado para ver tus canciones enviadas!</h3>
+  {{/if}}-->
+ 
+  
  
 </template>

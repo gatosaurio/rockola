@@ -1,11 +1,10 @@
-
 Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
-  'userSongs': function() {
+  'uSongs': function() {
     var creator = Meteor.user();
     return Songs.find({
-      createdBy: creator
+     createdBy: creator
     }, {
       sort: {
         score: -1, createdAt: -1

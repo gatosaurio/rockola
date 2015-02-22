@@ -1,19 +1,10 @@
-/*Meteor.publish('userData', function() {
-  if(!this.userId) return null;
-  return Meteor.users.find(this.userId, {fields: {
-    remaining_votes: 1,
-  }});
-});
-*/
 Meteor.publish("allSongs", function(){
   return Songs.find({});
 });
 
 Meteor.publish("userSongs", function(){
-  //var userId = Meteor.users.findOne(this.userId);
-  var creator = Meteor.users.findOne(_id = this.id)
-  return Songs.find({createdBy: creator});
-});
+  return Meteor.songs.find({createdBy: this.userId });
+});         
 
 Meteor.publish("approvedSongs", function(){
   return Songs.find({checked: true});
@@ -21,4 +12,11 @@ Meteor.publish("approvedSongs", function(){
 
 Meteor.publish('users', function() {
     return Meteor.users.find({}, {fields: {services: 1}});
+});
+
+Meteor.publish('remainingVotes', function() {
+  //if(!this.userId) return null;
+  return Meteor.users.find(this.userId, {fields: {
+    remaining_votes: 1,
+  }});
 });

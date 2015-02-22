@@ -1,3 +1,8 @@
+Tracker.autorun(function() {
+  Meteor.subscribe('users');
+  Meteor.subscribe('userData');
+});
+ Meteor.subscribe('remainingVotes');
 Template.playList.helpers({
   'playList': function(){
     return Songs.find({}, {sort: {score: -1, createdAt: -1} });
@@ -53,6 +58,8 @@ Template.playList.events({
     var userId = Meteor.user()._id;
     var user = Meteor.users.findOne(_id = userId);
     Meteor.call('decreaseVotes', user);
-    
+    //var remainingVotes = user.remaining_votes;
+    //console.log(remainingVotes);
+    //Session.set('votes', remaining_votes);
   }
 });
