@@ -2,16 +2,17 @@ Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
   'uSongs': function() {
-    var creator = Meteor.user();
+    var userId = Meteor.user()._id;
+    var creator = Meteor.users.findOne(_id = userId);
     return Songs.find({
-     createdBy: creator
+      createdBy: creator
     }, {
       sort: {
         score: -1, createdAt: -1
       }
     });
   },
-
+  
   'counter': function() {
     var count = Session.get('counter');
     return count;

@@ -35,7 +35,7 @@ Meteor.methods({
     Songs.update(songId, {$set: {checked: ! songId.checked}});
   },
   'decreaseVotes': function(user){
-    Meteor.users.update(user, {$inc: {remaining_votes: -1} });
+    //Meteor.users.update(user, {$inc: {remaining_votes: -1} });
   }
   
 });

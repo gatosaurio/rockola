@@ -1,8 +1,4 @@
-Tracker.autorun(function() {
-  Meteor.subscribe('users');
-  Meteor.subscribe('userData');
-});
- Meteor.subscribe('remainingVotes');
+
 Template.playList.helpers({
   'playList': function(){
     return Songs.find({}, {sort: {score: -1, createdAt: -1} });
