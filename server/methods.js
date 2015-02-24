@@ -37,6 +37,9 @@ Meteor.methods({
   },
   'decreaseVotes': function(user){
     Meteor.users.update(user, {$inc: {remaining_votes: -1} });
+  },
+  'decreaseSongs': function(user){
+    Meteor.users.update(user, {$inc: {remaining_songs: -1}});
   }
   
 });

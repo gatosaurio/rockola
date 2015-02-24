@@ -15,14 +15,14 @@ Template.userSongs.helpers({
     });
   },
   
-  'counter': function() {
-    var count = Session.get('counter');
-    return count;
+  'remainingSongs': function(){
+    var user = Meteor.user();
+    return user.remaining_songs;
   },
 
   'disableForm': function() {
-    var counter = Session.get('counter');
-    if (counter <= 0) {
+    var user = Meteor.user();
+    if (user.remaining_songs <= 0) {
       return "disabled"
     }
   }
@@ -56,8 +56,8 @@ Template.userSongs.events({
   },
 
   'click .send': function() {
-    var count = Session.get("counter");
-    Session.set("counter", count - 1);
+    var user = Meteor.user();
+    Meteor.call('decreaseSongs', user);
 
   }
 });

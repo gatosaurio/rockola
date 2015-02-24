@@ -33,9 +33,6 @@ Template.playList.helpers({
   'disableVote': function(){
     var songId = this._id;
     var selectedSong = Session.get('selectedSong');
-    /*var userId = Meteor.user()._id;
-    var user = Meteor.users.findOne(_id = userId);
-    var remainingVotes = Session.get('votes');*/
     var user = Meteor.user();
     var remainingVotes = user.remaining_votes;
     

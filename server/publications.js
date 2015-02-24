@@ -18,8 +18,13 @@ Meteor.publish('users', function() {
 });
 
 Meteor.publish('remainingVotes', function() {
-  //if(!this.userId) return null;
   return Meteor.users.find(this.userId, {fields: {
     remaining_votes: 1,
+  }});
+});
+
+Meteor.publish('remainingSongs', function() {
+  return Meteor.users.find(this.userId, {fields: {
+    remaining_songs: 1,
   }});
 });
