@@ -2,8 +2,9 @@ Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
   'uSongs': function() {
-    var userId = Meteor.user()._id;
-    var creator = Meteor.users.findOne(_id = userId);
+    //var userId = Meteor.user()._id;
+    //var creator = Meteor.users.findOne(_id = userId);
+    var creator = Meteor.user();
     return Songs.find({
       createdBy: creator
     }, {

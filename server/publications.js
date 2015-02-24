@@ -3,11 +3,10 @@ Meteor.publish("allSongs", function(){
 });
 
 Meteor.publish("userSongs", function(){
-  //Meteor.users.find(this.userId, {fields: { remaining_votes: 1}});
-  if(this.userId) {
-    var user = Meteor.users.findOne(this.userId);
-    return Meteor.songs.find({createdBy: user});
-    }
+  var user = Meteor.users.findOne(this.userId);
+  var userTw = user.services.twitter.id;
+  console.log(userTw);
+  return Songs.find({createdBy: userTw });
 });         
 
 Meteor.publish("approvedSongs", function(){

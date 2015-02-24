@@ -1,7 +1,7 @@
 <template name="playList">
   
   <div class="row valign-wrapper heading">
-    <h1 class="col s12 headline">Pick une Lied &amp; Vote!</h1>
+    <h1 class="col s12 headline">Elegí y votá</h1>
   </div>  
   <div class="row">   
     {{#each playList}}    
@@ -18,13 +18,13 @@
         </div> 
         
         <div class="card-action valign-wrapper {{disableOwnVote}} {{disableVote}}">
-          {{#if currentUser}}
+          <!--{{#if currentUser}}-->
          
           <button class="btn waves-effect waves-light valign btn-vote {{visibleClass}} {{disableVote}}" type="submit">Votar</button>
           
-            {{else}}
-          <h6>Debes loguearte para Votar!</h6>
-          {{/if}}
+           <!-- {{else}}
+          <h6>Debes loguearte para Votar!</h6>-->
+          <!--{{/if}}-->
         </div>
       
       </div>      

@@ -1,5 +1,5 @@
 Meteor.startup(function() {
-  Session.setDefaultPersistent('votes', 10)
+  Session.setDefaultPersistent('votes', 30)
   var count = Session.get('counter');
   var votes = Session.get('votes');
   if (count <= 0) {
@@ -9,8 +9,8 @@ Meteor.startup(function() {
   }
   if (votes <= 0) {
     Meteor.setTimeout(function() {
-      Session.update('votes', 5);
-    }, 10000);
+      Session.update('votes', 20);
+    }, 5000);
   }
  Tracker.autorun(function() {
   Meteor.subscribe('users');
