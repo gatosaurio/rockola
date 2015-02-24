@@ -18,13 +18,13 @@
         </div> 
         
         <div class="card-action valign-wrapper {{disableOwnVote}} {{disableVote}}">
-          <!--{{#if currentUser}}-->
+         {{#if currentUser}}
          
           <button class="btn waves-effect waves-light valign btn-vote {{visibleClass}} {{disableVote}}" type="submit">Votar</button>
           
-           <!-- {{else}}
-          <h6>Debes loguearte para Votar!</h6>-->
-          <!--{{/if}}-->
+           {{else}}
+          <h6>Debes loguearte para Votar!</h6>
+          {{/if}}
         </div>
       
       </div>      

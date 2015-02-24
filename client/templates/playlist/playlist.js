@@ -1,4 +1,3 @@
-
 Template.playList.helpers({
   'playList': function(){
     return Songs.find({}, {sort: {score: -1, createdAt: -1} });
@@ -36,11 +35,17 @@ Template.playList.helpers({
     var selectedSong = Session.get('selectedSong');
     /*var userId = Meteor.user()._id;
     var user = Meteor.users.findOne(_id = userId);
-    var remainingVotes = user.remaining_votes;*/
-    var remainingVotes = Session.get('votes');
+    var remainingVotes = Session.get('votes');*/
+    var user = Meteor.user();
+    var remainingVotes = user.remaining_votes;
+    
     if(remainingVotes <= 0){
       return 'disabled'
     }
+  },
+  'disableButton': function(){
+    var count = Session.get('countClick');
+    console.log(count);
   }
 });
 
@@ -52,12 +57,8 @@ Template.playList.events({
   'click .btn-vote': function(){
     var selectedSong = Session.get('selectedSong');
     Meteor.call('vote',selectedSong);
-    //var userId = Meteor.user()._id;
-    //var user = Meteor.users.findOne(_id = userId);
-     Session.set("votes", Session.get("votes") - 1);
+    var user = Meteor.user();
+    Meteor.call('decreaseVotes', user);
     
-    //var remainingVotes = user.remaining_votes;
-    //console.log(remainingVotes);
-    //Session.set('votes', remaining_votes);
   }
 });

@@ -2,11 +2,12 @@ Session.setDefaultPersistent("counter", 5);
 
 Template.userSongs.helpers({
   'uSongs': function() {
-    //var userId = Meteor.user()._id;
-    //var creator = Meteor.users.findOne(_id = userId);
-    var creator = Meteor.user();
+    var user = Meteor.user();
+    var creator = user.services.twitter.id;
+    
+    console.log(creator);
     return Songs.find({
-      createdBy: creator
+      creatorId: creator
     }, {
       sort: {
         score: -1, createdAt: -1
@@ -34,6 +35,7 @@ Template.userSongs.events({
     var url = event.target.url.value;
     //var yt_id = urlMod.match(/.{11}$/g);
     var creator = Meteor.user();
+    var creatorId = creator.services.twitter.id;
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
     if (match && match[2].length == 11) {
@@ -43,7 +45,7 @@ Template.userSongs.events({
         var title = videoTitle;
         var score = 0;
 
-        Meteor.call('insertSong',video_id,title,score,creator)
+        Meteor.call('insertSong',video_id,title,score,creator, creatorId);
       });
 
       event.target.url.value = "";

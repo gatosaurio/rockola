@@ -1,5 +1,5 @@
 Meteor.startup(function() {
-  Session.setDefaultPersistent('votes', 30)
+  //Session.setDefault('votes', 0);
   var count = Session.get('counter');
   var votes = Session.get('votes');
   if (count <= 0) {
@@ -7,16 +7,16 @@ Meteor.startup(function() {
       Session.update('counter', 3);
     }, 5000);
   }
-  if (votes <= 0) {
+  Tracker.autorun(function() {
+  Meteor.subscribe('users');
+  Meteor.subscribe('remainingVotes');
+});
+  /*if (votes <= 0) {
     Meteor.setTimeout(function() {
       Session.update('votes', 20);
     }, 5000);
-  }
- Tracker.autorun(function() {
-  Meteor.subscribe('users');
-  //Meteor.subscribe('userData');
-  //Meteor.subscribe('remainingVotes');
-});
+  }*/
+ 
 /*var votes = Session.get('votes');
     var userId = Meteor.user()._id;
     var user = Meteor.users.findOne({_id: userId});

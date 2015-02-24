@@ -1,5 +1,5 @@
 Meteor.methods({
-  'insertSong': function(video_id,title,score,creator){
+  'insertSong': function(video_id,title,score,creator,creatorId){
     Songs.insert({
       video_id: video_id,
       title: title,
@@ -8,7 +8,8 @@ Meteor.methods({
       status: "Pendiente",
       checked: false,
       createdAt: new Date(),
-      createdBy: creator
+      createdBy: creator,
+      creatorId: creatorId
     });
   },
   'updateComment': function(songId,comment){
@@ -34,8 +35,8 @@ Meteor.methods({
   'toggleChecked': function(songId){
     Songs.update(songId, {$set: {checked: ! songId.checked}});
   },
-  'decreaseVotes': function(){
-    //Meteor.users.update(user, {$inc: {remaining_votes: -1} });    
+  'decreaseVotes': function(user){
+    Meteor.users.update(user, {$inc: {remaining_votes: -1} });
   }
   
 });

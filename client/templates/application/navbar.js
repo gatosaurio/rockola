@@ -1,6 +1,7 @@
 Template.navBar.helpers({
   'votes': function(){
-    return Session.get('votes');
+    var user = Meteor.user();
+    return user.remaining_votes;
   }
   
 });
