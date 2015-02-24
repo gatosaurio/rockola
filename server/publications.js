@@ -1,13 +1,13 @@
 Meteor.publish("allSongs", function(){
   return Songs.find({});
 });
-/*
+
 Meteor.publish("userSongs", function(){
   var user = Meteor.users.findOne(this.userId);
   var creator = user.services.twitter.id;
-  return Songs.find({userId: creator });
+  return Songs.find({creatorId: creator });
 });         
-*/
+
 
 Meteor.publish("approvedSongs", function(){
   return Songs.find({checked: true});

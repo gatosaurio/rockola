@@ -7,7 +7,7 @@ Template.userSongs.helpers({
     
     console.log(creator);
     return Songs.find({
-      creatorId: creator
+      //creatorId: creator
     }, {
       sort: {
         score: -1, createdAt: -1
