@@ -1,0 +1,16 @@
+<template name="usersList">
+  <div class="container">
+    <div class="row">
+      {{#each users}}
+      <div class="collection col s6 m4">
+        <div class="collection-item {{selectedClass}}">
+          <span><img src="{{services.twitter.profile_image_url}}"/><h5>@{{services.twitter.screenName}}</h5></span>
+          <br>
+          <h5>Remaining Songs: {{remaining_songs}}</h5><button class="btn waves-effect waves-light btn-restore-songs" type="submit">Restore</button>
+          <h5>Remaining Votes: {{remaining_votes}}</h5><button class="btn waves-effect waves-light btn-restore-votes" type="submit">Restore</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

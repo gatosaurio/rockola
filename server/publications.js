@@ -14,17 +14,18 @@ Meteor.publish("approvedSongs", function(){
 });
 
 Meteor.publish('users', function() {
-    return Meteor.users.find({}, {fields: {services: 1}});
+    return Meteor.users.find({}, {fields: {services: 1, remaining_votes: 1,remaining_songs: 1}});
 });
 
 Meteor.publish('remainingVotes', function() {
   return Meteor.users.find(this.userId, {fields: {
-    remaining_votes: 1,
+    remaining_votes: 1
   }});
 });
 
 Meteor.publish('remainingSongs', function() {
   return Meteor.users.find(this.userId, {fields: {
-    remaining_songs: 1,
+    remaining_songs: 1
   }});
 });
+

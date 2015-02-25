@@ -16,9 +16,6 @@ Template.playList.helpers({
       return 'visible'
     }
   },
-  'votes': function(){
-    return Session.get('votes');
-  },
   'disableOwnVote': function(){
     var songId = this._id;
     var selectedSong = Session.get('selectedSong');
@@ -39,10 +36,6 @@ Template.playList.helpers({
     if(remainingVotes <= 0){
       return 'disabled'
     }
-  },
-  'disableButton': function(){
-    var count = Session.get('countClick');
-    console.log(count);
   }
 });
 

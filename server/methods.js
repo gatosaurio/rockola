@@ -40,6 +40,12 @@ Meteor.methods({
   },
   'decreaseSongs': function(user){
     Meteor.users.update(user, {$inc: {remaining_songs: -1}});
+  },
+  'restoreSongs': function(user){
+    Meteor.users.update(user, {$set: {remaining_songs: 5}});
+  },
+  'restoreVotes': function(user){
+    Meteor.users.update(user, {$set: {remaining_votes: 20}});
   }
   
 });
