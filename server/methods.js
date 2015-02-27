@@ -5,6 +5,7 @@ Meteor.methods({
       title: title,
       score: score,
       duration: duration,
+      ready: false,
       current: false,
       done: false,
       comment: "",
@@ -34,6 +35,9 @@ Meteor.methods({
   
   'vote': function(selectedSong){
     Songs.update(selectedSong, {$inc: {score: 1} });
+  },
+  'setReady': function(songId){
+    Songs.update(songId, {$set: {ready:true}})
   },
   'setCurrent':function(songId){
     Songs.update(songId, {$set: {current:true}});

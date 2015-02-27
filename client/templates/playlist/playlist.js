@@ -36,6 +36,13 @@ Template.playList.helpers({
     if(remainingVotes <= 0){
       return 'disabled'
     }
+  },
+  'readyClass': function(){
+    var lastCard = Songs.find({current: true});
+    var time = Session.get('time');
+    if(time>0){
+      $(lastCard).addClass('disabled');
+    }
   }
 });
 
