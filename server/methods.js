@@ -1,9 +1,12 @@
 Meteor.methods({
-  'insertSong': function(video_id,title,score,creator,creatorId){
+  'insertSong': function(video_id,title,score,creator,creatorId,duration){
     Songs.insert({
       video_id: video_id,
       title: title,
       score: score,
+      duration: duration,
+      current: false,
+      done: false,
       comment: "",
       status: "Pendiente",
       checked: false,
@@ -31,6 +34,12 @@ Meteor.methods({
   
   'vote': function(selectedSong){
     Songs.update(selectedSong, {$inc: {score: 1} });
+  },
+  'setCurrent':function(songId){
+    Songs.update(songId, {$set: {current:true}});
+  },
+  'setDone':function(songId){
+    Songs.update(songId, {$set: {current:false, done: true}});
   },
   'toggleChecked': function(songId){
     Songs.update(songId, {$set: {checked: ! songId.checked}});

@@ -1,17 +1,6 @@
-Session.setDefaultPersistent("counter", 5);
-
 Template.userSongs.helpers({
   'uSongs': function() {
-    var user = Meteor.user();
-    var creator = user.services.twitter.id;
-    
-    console.log(creator);
-    return Songs.find({
-      //creatorId: creator
-    }, {
-      sort: {
-        score: -1, createdAt: -1
-      }
+    return Songs.find({}, { sort: { score: -1, createdAt: -1 }
     });
   },
   
@@ -42,10 +31,11 @@ Template.userSongs.events({
       var video_id = match[2];
       jQuery.getJSON("http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=json", function(data) {
         var videoTitle = data.entry.title.$t;
+        var duration = data.entry.media$group.yt$duration.seconds;
         var title = videoTitle;
         var score = 0;
 
-        Meteor.call('insertSong',video_id,title,score,creator, creatorId);
+        Meteor.call('insertSong',video_id,title,score,creator, creatorId, duration);
       });
 
       event.target.url.value = "";

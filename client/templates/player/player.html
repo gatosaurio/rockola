@@ -1,0 +1,10 @@
+<template name="player">
+  {{#each player}}
+  <div class="player">
+    <iframe width="560" height="315" data-duration="{{duration}}" class="playing" src="https://www.youtube.com/embed/{{video_id}}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+  {{time}}
+
+  {{/each }}
+  
+</template>

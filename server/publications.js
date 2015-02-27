@@ -6,8 +6,15 @@ Meteor.publish("userSongs", function(){
   var user = Meteor.users.findOne(this.userId);
   var creator = user.services.twitter.id;
   return Songs.find({creatorId: creator });
-});         
+});    
 
+Meteor.publish("currentSong", function(){
+  return Songs.find({current: true, done:false});
+});  
+
+Meteor.publish("doneSongs", function(){
+  return Songs.find({done:true});
+}); 
 
 Meteor.publish("approvedSongs", function(){
   return Songs.find({checked: true});

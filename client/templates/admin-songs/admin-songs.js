@@ -24,7 +24,6 @@ Template.adminSongs.events({
     
     Meteor.call('updateComment', songId,comment);
     event.target.comment.value = "";
-    //event.target.approved.value = "";
   },
   'click .thumb': function(){
     var songId = this._id;
@@ -38,10 +37,14 @@ Template.adminSongs.events({
     var songId = this._id;
     Meteor.call('toggleChecked',songId);
     Meteor.call('updateStatus',songId);
-  }
-  /*"change .status": function(event, tmpl){
+  },
+  'click .setCurrent': function(){
     var songId = this._id;
-    var status = tmpl.find('.status').value;
-    Meteor.call('updateStatus', songId, status);
-    }  */
+    Meteor.call('setCurrent', songId);
+  },
+  'click .setDone': function(){
+    var songId = this._id;
+    Meteor.call('setDone', songId);
+  }
+
 });
